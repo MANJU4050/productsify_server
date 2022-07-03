@@ -7,6 +7,7 @@ const mongoose = require('mongoose')
 const cookieParser = require('cookie-parser')
 
 app.use(cors({
+    origin:'https://productapi.netlify.app',
     credentials: true
 }))
 
