@@ -6,10 +6,19 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const cookieParser = require('cookie-parser')
 
-app.use(cors({
-    origin:'https://productapi.netlify.app',
-    credentials: true
-}))
+// app.use(cors({
+//     origin:'https://productapi.netlify.app',
+//     credentials: true
+// }))
+
+app.use(cors({credentials: true, origin: 'https://productapi.netlify.app'}));
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", 'https://productapi.netlify.app');
+    res.header("Access-Control-Allow-Credentials", true);
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+    res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
+    next();
+});
 
 //importing routes
 const authRoute = require('./routes/auth')
