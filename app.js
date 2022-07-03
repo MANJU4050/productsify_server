@@ -6,7 +6,9 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const cookieParser = require('cookie-parser')
 
-app.use(cors())
+app.use(cors({
+    credentials: true
+}))
 
 //importing routes
 const authRoute = require('./routes/auth')
