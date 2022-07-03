@@ -45,11 +45,8 @@ router.post('/login', (req, res) => {
                 if (foundUser) {
                     if (foundUser.password === md5(req.body.password)) {
                         const id = { id: foundUser.id }
-                        ACCESS_TOKEN_SECRET = '172c6ea01f5b1e5e2e2d25813175ef788d26e873096a2fa6e4956a66119851a905f917b63ffe672889d67521240a4f272da2ef6a3ca87ea287e03596926787ec'
-                        REFRESH_TOKEN_SECRET = '96ea520fceff48464581a7753f4f828c49d1dc333afb92220015bdfbc15c0676bc5662ee00d65e812c6f69ecac2f1a029d93127105d9a618b10eb8d45c4b8e4f'
-
-                        const accessToken = jwt.sign(id, ACCESS_TOKEN_SECRET, { expiresIn: '15m' });
-                        const refreshToken = jwt.sign(id, REFRESH_TOKEN_SECRET, { expiresIn: '1d' });
+                        const accessToken = jwt.sign(id, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '15m' });
+                        const refreshToken = jwt.sign(id, process.env.REFRESH_TOKEN_SECRET, { expiresIn: '1d' });
 
                         foundUser.tokens.push(refreshToken)
                         foundUser.save();
