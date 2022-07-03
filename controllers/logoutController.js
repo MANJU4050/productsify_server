@@ -15,8 +15,8 @@ const handleLogout = (req, res) => {
             res.sendStatus(204);
         } else {
             const refreshToken = cookies.jwt;
-           
-            jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, (err, decoded) => {
+            REFRESH_TOKEN_SECRET = '96ea520fceff48464581a7753f4f828c49d1dc333afb92220015bdfbc15c0676bc5662ee00d65e812c6f69ecac2f1a029d93127105d9a618b10eb8d45c4b8e4f'
+            jwt.verify(refreshToken, REFRESH_TOKEN_SECRET, (err, decoded) => {
                 if (err) {
                     res.sendStatus(204);
                 } else {
