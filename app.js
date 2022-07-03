@@ -8,7 +8,7 @@ const cookieParser = require('cookie-parser')
 
 
 
-app.use(cors({credentials: true, origin: ['https://productapi.netlify.app','http:localhost:3000']}));
+app.use(cors({credentials: true, origin: ['https://productapi.netlify.app','http://localhost:3000']}));
 
 //importing routes
 const authRoute = require('./routes/auth')
