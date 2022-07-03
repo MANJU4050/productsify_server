@@ -50,7 +50,7 @@ router.post('/login', (req, res) => {
 
                         foundUser.tokens.push(refreshToken)
                         foundUser.save();
-                        res.cookie('jwt', refreshToken, { httpOnly: true });
+                        res.cookie('jwt', refreshToken, { httpOnly: true,secure:true,maxAge:24*60*60*1000 });
                         res.status(200).send(accessToken);
 
 
