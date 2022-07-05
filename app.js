@@ -9,7 +9,7 @@ const cookieParser = require('cookie-parser')
 
 
 app.use(cors({
-    origin: 'https://productapi.netlify.app',
+    origin: 'https://productsify.netlify.app',
     methods: ['GET', 'POST','PUT','PATCH','DELETE'],
     credentials: true
 }));
